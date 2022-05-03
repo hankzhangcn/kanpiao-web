@@ -2,7 +2,7 @@
     include "../../component/header.php";
     include "../../component/conn.php";
 
-    $sql = "select img from banner";
+    $sql = "select `img` from `banner`";
     $res = mysqli_query($conn, $sql);
     if(!$res){
         die("数据库没有数据!");
