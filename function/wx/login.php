@@ -3,8 +3,12 @@
     include "../../component/conn.php";
     include "../pub/jwt.php";
 
-    $appid = "yourappid";
-    $secret = "yoursecret";
+    // $appid = "yourappid";
+    // $secret = "yoursecret";
+    // $js_code = $_GET['code'];
+    
+    $appid = "wxba46e58665def33a";
+    $secret = "f6e15ce49cc42b115b306f9b17e5a891";
     $js_code = $_GET['code'];
 
     $url = "https://api.weixin.qq.com/sns/jscode2session?appid=".$appid."&secret=".$secret."&js_code=".$js_code."&grant_type=authorization_code";

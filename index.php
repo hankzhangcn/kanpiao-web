@@ -2,9 +2,7 @@
 <html>
 <body>
 
-<?php
-echo "Hello World!";
-?>
+<script>window.location.href='pages/login.php';</script>
 
 </body>
 </html>
