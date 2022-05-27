@@ -25,17 +25,8 @@
 </head>
 <body>
     <main>
-        <div class="topbar">
-            <div class="tbleft">
-                <img class="logo" src="https://s1.ax1x.com/2020/06/09/t5LIK0.png" />
-                <a class="title" href="dashboard.php">TIMS教师信息管理系统</a>
-            </div>
-            <div class="tbright">
-                <a class="logout" >请在『仪表盘』登出系统</a>
-                <img class="userimg" src="https://s1.ax1x.com/2020/06/10/tTPhHH.png" alt="用户头像" border="0" />
-            </div>
-        </div>
-       
+        <!-- 顶栏 -->
+        <?php include "../component/topbar.php"?>
         <!-- 目录 -->
         <?php include "../component/menu.php"?>
         
@@ -115,6 +106,14 @@
                         <!-- 右侧 -->
                         <div class="col-sm">
                             <div class="form-group">
+                                <?php
+                                    if($avatarurl)
+                                        echo "<img class='avatar' style='width: 90px;border-radius:45px' src='".$avatarurl."' alt='用户头像'/>";
+                                    else
+                                        echo "<img class='avatar' style='width: 90px;border-radius:45px' src='https://s1.ax1x.com/2020/06/10/tTPhHH.png' alt='用户头像'/>";
+                                ?>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputPassword1">上次登录时间</label>
                                 <input class="form-control" type="datetime" name="last_login" value="<?php echo $last_login?>" readonly>
                                 <small id="idlHelp" class="form-text text-muted">用户上次登录小程序的时间。</small>
@@ -169,9 +168,6 @@
                     <button type="submit"  name="save" class="btn btn-primary">提交更改</button>
                 </form>
                                     </br>
-                
-
-
                     <?php
                         }else{
                             echo "<script>alert('用户不存在。'); window.history.back();</script>";
