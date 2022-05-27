@@ -1,10 +1,10 @@
-<!-- 本部分需要 max_page,page,(page_size) -->
+<!-- 本部分需要 max_page,page,(page_size) $next_url -->
 <?php 
     // 如果是第一页
     if($page == 1)
         echo "<li class='page-item disabled'><a class='page-link'>前一页</a>";
     else
-        echo "<li class='page-item'><a class='page-link' href='./view.php?p=".($page-1)."'>前一页</a>";
+        echo "<li class='page-item'><a class='page-link' href='".$next_url."&p=".($page-1)."'>前一页</a>";
 ?>
 </li>
 <!-- 确定最大页码 -->
@@ -23,14 +23,14 @@
         echo "<li class='page-item active'><a class='page-link ' href='#'>".$first_pagenum."</a></li>";
     if($max_page == 2)
     {
-        echo "<li class='page-item ";if($page == $first_pagenum) echo "active";echo "'><a class='page-link' href='./view.php?p=".$first_pagenum."'>".$first_pagenum."</a></li>";
-        echo "<li class='page-item ";if($page == $first_pagenum+1) echo "active";echo "'><a class='page-link' href='./view.php?p=".($first_pagenum+1)."'>".($first_pagenum+1)."</a></li>";
+        echo "<li class='page-item ";if($page == $first_pagenum) echo "active";echo "'><a class='page-link' href='".$next_url."&p=".$first_pagenum."'>".$first_pagenum."</a></li>";
+        echo "<li class='page-item ";if($page == $first_pagenum+1) echo "active";echo "'><a class='page-link' href='".$next_url."&p=".($first_pagenum+1)."'>".($first_pagenum+1)."</a></li>";
     }
     if($max_page >= 3)
     {
-        echo "<li class='page-item ";if($page == $first_pagenum) echo "active";echo "'><a class='page-link' href='./view.php?p=".$first_pagenum."'>".$first_pagenum."</a></li>";
-        echo "<li class='page-item ";if($page == $first_pagenum+1) echo "active";echo "'><a class='page-link' href='./view.php?p=".($first_pagenum+1)."'>".($first_pagenum+1)."</a></li>";
-        echo "<li class='page-item ";if($page == $first_pagenum+2) echo "active";echo "'><a class='page-link' href='./view.php?p=".($first_pagenum+2)."'>".($first_pagenum+2)."</a></li>";
+        echo "<li class='page-item ";if($page == $first_pagenum) echo "active";echo "'><a class='page-link' href='".$next_url."&p=".$first_pagenum."'>".$first_pagenum."</a></li>";
+        echo "<li class='page-item ";if($page == $first_pagenum+1) echo "active";echo "'><a class='page-link' href='".$next_url."&p=".($first_pagenum+1)."'>".($first_pagenum+1)."</a></li>";
+        echo "<li class='page-item ";if($page == $first_pagenum+2) echo "active";echo "'><a class='page-link' href='".$next_url."&p=".($first_pagenum+2)."'>".($first_pagenum+2)."</a></li>";
     }
         
 ?>
@@ -39,5 +39,5 @@
     if($page >= $max_page)
         echo "<li class='page-item disabled'><a class='page-link'>后一页</a>";
     else
-        echo "<li class='page-item'><a class='page-link' href='./view.php?p=".($page+1)."'>后一页</a>";
+        echo "<li class='page-item'><a class='page-link' href='".$next_url."&p=".($page+1)."'>后一页</a>";
 ?>

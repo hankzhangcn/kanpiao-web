@@ -6,7 +6,7 @@
 
 
 
-    $id=$_POST['id'];
+    $user_id=$_POST['user_id'];
     // $openid=$_POST["openid"];
     $nickname=$_POST["nickname"];
     // $avatarurl=$_POST["avatarurl"];
@@ -28,7 +28,7 @@
             "', gender = ".$gender.            
             ", is_checker = ".$is_checker.
             ", is_banned = ".$is_banned.
-            " WHERE id = ".$id;
+            " WHERE user_id = ".$user_id;
     $result = mysqli_query($conn,$sql);
     if(! $result )
     {
@@ -55,30 +55,16 @@ else{
                         <div class="contentflow">
                             <div class="noticepad">
                                 <h1></h1>
-                                <a>管理员 <?php echo $_SESSION['u_id'];?>，您可以在本页面修改这位教师的信息。</a></br>
+                                <a>管理员 <?php echo $_SESSION['admin_name'];?>，您可以在本页面修改这位教师的信息。</a></br>
                                 <a>要登出系统，请返回仪表盘。</a></br>
                             </div>
 
                             <div class="workspace">
-                            <?php
-                                /*if($_REQUEST['delete'])
-                                {
-                            ?>
-                                    <h1><?php echo "$t_name"?> 老师的信息已经删除</></br></br>
-                                    <a href="../pages/dashboard.php">
-                                        <input type="button" value="返回" >
-                                    </a>
-                            <?php
-                                } else {*/
-                            ?>
                                     
                                     <h1><?php echo "$nickname"?> 用户的信息已经完善</h1></br></br>
-                                    <a href="./menage.php?user_id=<?php echo $id;?>">
+                                    <a href="./menage.php?user_id=<?php echo $user_id;?>">
                                         <input type="button" class="btn btn-success" value="返回" >
                                     </a>
-                            <?php
-                                //}
-                            ?>
                             </div>
 
                             <div class="bottom">
@@ -89,8 +75,6 @@ else{
                             </div>
                         </div>
                     </main>
-                    <!--调试用，防止JS被缓存-->
-                    <!--<script type="text/javascript" src="../js/menage.js?param=Math.random()"></script>-->
                 </body>
                 </html>
     

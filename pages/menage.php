@@ -1,12 +1,22 @@
-
 <?php
     include "../function/web/authorization.php";
     include "../function/pub/conn.php";
     include "../component/bootstrap.php";
-    $id=$_GET["user_id"];
+    $user_id=$_GET["user_id"];
+    $openid =$_GET["openid"];
+    // open->user_Id
+    if($openid)
+    {
+        $sql="select * from wx_user WHERE openid = '$openid'";
+        $rs=mysqli_query($conn,$sql);
+        if(mysqli_num_rows($rs))
+        $row=mysqli_fetch_array($rs);
+        echo $user_id=$row["user_id"];
+    }
     //如果直接访问，那么后退。
-    if($id == null)
+    if($user_id == null)
         echo "<script>alert('请先选择用户。'); window.history.back();</script>";
+
 
 ?>
 
@@ -38,7 +48,7 @@
             </div>
             <?php
                 //找人
-                $sql="select * from wx_user WHERE id = $id";
+                $sql="select * from wx_user WHERE user_id = $user_id";
                 $rs=mysqli_query($conn,$sql);
                 if(mysqli_num_rows($rs)){
                 $row=mysqli_fetch_array($rs);
@@ -61,13 +71,26 @@
             ?>
             <div class="workspace">
                 <h1><?php echo "$nickname"?> 用户的信息</h1></br>
-                <button type="button" class="btn btn-info">查看该用户的订单信息</button></br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <button type="button" class="btn btn-info">查看该用户的订单信息</button></br>
+                        </div>
+                        <div class="col-sm">
+                            
+                            <a href="./login_view.php?openid=<?php echo $openid;?>">
+                                        <input type="button" class="btn btn-info" value="查看该用户的登录信息" >
+                            </a>
+                        </div>
+                    </div>
+                </div></br>
+
                 <form class="info" action="menage_ok.php" method="POST">
                     <div class="row">
                         <div class="col-sm">
                             <div class="form-group">
                                 <label>用户 ID</label>
-                                <input class="form-control" name="id" type="text" value="<?php echo $id?>" readonly>
+                                <input class="form-control" name="user_id" type="text" value="<?php echo $user_id?>" readonly>
                                 <small id="idlHelp" class="form-text text-muted">用户 ID 由系统自动生成，不可更改。</small>
                             </div>
                             <div class="form-group">
@@ -105,6 +128,7 @@
                         </div>
                         <!-- 右侧 -->
                         <div class="col-sm">
+
                             <div class="form-group">
                                 <?php
                                     if($avatarurl)
