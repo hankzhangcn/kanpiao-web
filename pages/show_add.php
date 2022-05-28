@@ -40,22 +40,11 @@
             </div>
             <?php
                 //找人
-                $sql="select * from show_item WHERE show_id = $show_id";
+                $sql="select max(show_id) from show_item";
                 $rs=mysqli_query($conn,$sql);
                 if(mysqli_num_rows($rs)){
                 $row=mysqli_fetch_array($rs);
-                //将原本教师信息放入变量，方便嵌套
-                $show_name=$row["show_name"];
-                $show_foreign_name=$row["show_foreign_name"];
-                $show_cast=$row["show_cast"];
-                $show_city=$row["show_city"];
-                $show_place=$row["show_place"];
-                $show_abstract=$row["show_abstract"];
-                $show_detail=$row["show_detail"];
-                $show_issuing_company=$row["show_issuing_company"];
-                $show_poster_horizontal=$row["show_poster_horizontal"];
-                $show_poster_vertical=$row["show_poster_vertical"];
-
+                $show_id=row['0']+1;
                 if($is_service != 0)//如果不是管理员
                     echo "<script>alert('您没有管理用户的权限。'); window.history.back();</script>";
             ?>
