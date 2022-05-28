@@ -13,12 +13,12 @@
         $page = 1;
     $page_size = 10;
 // 确定最大页数
-    $sql="select count(*) from wx_user";
+    $sql="select count(*) from show_item";
     $rs=mysqli_query($conn,$sql);
     $row=mysqli_fetch_array($rs);
     $max_page = ceil($row[0]/$page_size);
 // 确定翻页地址
-    $next_url = "./view.php?";
+    $next_url = "./show_view.php?";
 ?>
 
 
@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="\component\css\common.css">
   <link rel="stylesheet" href="\component\css\table.css">
   <link rel="icon" href="https://s1.ax1x.com/2020/06/09/t5LIK0.png" type="image/x-icon" />
-  <title>用户一览-TIMS</title>
+  <title>演出一览-TIMS</title>
 </head>
 <body>
     <main>
@@ -49,83 +49,40 @@
                 <p>要登出系统，请返回仪表盘。</p>
             </div>
             <div class="workspace">
-                <h1>用户一览</h1>
-                <form method="get" action="menage.php">
+                <h1>演出一览</h1>
+                <form method="get" action="show_menage.php">
                 <div class="form-group">
-                        <label>通过教师 ID 直达管理</label>
-                        <input class="form-control" name="user_id" type="text" value="" >
-                        <small id="idlHelp" class="form-text text-muted">输入要管理的教师 ID</small>
-                        <input type="submit" class="btn btn-primary" />
-                    </div>
-                </form>
-                <form method="get" action="menage.php">
-                <div class="form-group">
-                        <label>通过openid直达管理</label>
-                        <input class="form-control" name="openid" type="text" value="" >
-                        <small id="idlHelp" class="form-text text-muted">输入要管理的openid</small>
+                        <label>通过演出 ID 直达管理</label>
+                        <input class="form-control" name="show_id" type="text" value="" >
+                        <small id="idlHelp" class="form-text text-muted">输入要管理的演出 ID</small>
                         <input type="submit" class="btn btn-primary" />
                     </div>
                 </form>
                 <table class="glance table table-hover table-bordered" >
                     <tr>
-                        <td>用户 ID</td>
-                        <td>昵称</td>
-                        <td>性别</td>
-                        <td>电话</td>
-                        <td>检票员标识</td>
-                        <td>封禁标识</td>
-                        <td>上次登录时间</td>
-                        <td>创建时间</td>
+                        <td>ID</td>
+                        <td>名称</td>
+                        <td>卡司</td>
+                        <td>城市</td>
                     </tr>
                     <?php
-                        $sql="select * from wx_user ORDER BY user_id limit ".(($page-1)*$page_size).",".$page_size;
+                        $sql="select * from show_item ORDER BY show_id limit ".(($page-1)*$page_size).",".$page_size;
                         $rs=mysqli_query($conn,$sql);
                         while($row=mysqli_fetch_array($rs))
                         {
-                    if($row['is_checker'])
-                        echo "<tr class=\"table-success\">";
-                    else if($row['is_banned'])
-                        echo "<tr class=\"table-danger\">";
-                    else
-                        echo "<tr>";
                     ?>
-                    
-                    
+                    <tr>
                         <td>
-                            <a href="menage.php?user_id=<?php echo $row['user_id']?>"><?php echo $row['user_id']?></a>
+                            <a href="show_menage.php?show_id=<?php echo $row['show_id']?>"><?php echo $row['show_id']?></a>
                         </td>
                         <td>
-                            <a href="menage.php?user_id=<?php echo $row['user_id']?>"><?php echo $row['nickname']?></a>
+                            <a href="show_menage.php?show_name=<?php echo $row['show_name']?>"><?php echo $row['show_name']?></a>
                         </td>
                         <td>
-                            <?php 
-                                if($row['gender'])
-                                    echo "男";
-                                else
-                                    echo "女";?>
+                            <p><?php echo $row['show_cast']?></p>
                         </td>
                         <td>
-                            <?php echo $row['mobile']?> 
-                        </td>
-                        <td>
-                            <?php 
-                                if($row['is_checker'])
-                                    echo "<span class=\"badge badge-success\">是</span>";
-                                else
-                                    echo "否";?>
-                        </td>
-                        <td>
-                            <?php 
-                                if($row['is_banned'])
-                                    echo "<span class=\"badge badge-danger\">被封禁</span>";
-                                else
-                                    echo "正常";?>
-                        </td>
-                        <td>
-                            <?php echo $row['last_login']?>
-                        </td>
-                        <td>
-                            <?php echo $row['create_time']?>
+                            <p><?php echo $row['show_city']?></p>
                         </td>
                     </tr>
                     <?php

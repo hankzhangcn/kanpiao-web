@@ -11,7 +11,7 @@
     <div class="crossline"></div>
     <a href="changepw.php">
         <input type="button" class="changepw" value="修改密码">
-    </a>";
+    </a>
 <?php
         if($is_service == 0)
         {
