@@ -76,7 +76,7 @@
                             <a href="show_menage.php?show_id=<?php echo $row['show_id']?>"><?php echo $row['show_id']?></a>
                         </td>
                         <td>
-                            <a href="show_menage.php?show_name=<?php echo $row['show_name']?>"><?php echo $row['show_name']?></a>
+                            <a href="show_menage.php?show_id=<?php echo $row['show_id']?>"><?php echo $row['show_name']?></a>
                         </td>
                         <td>
                             <p><?php echo $row['show_cast']?></p>
