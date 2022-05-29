@@ -1,7 +1,7 @@
 <!-- 检票员对订单检札 -->
 <?php
     include "../../component/header.php";
-    include "../../component/conn.php";
+    include "../pub/conn.php";
     // include "../pub/jwt.php";
 
     // 得到前端传来的订单号

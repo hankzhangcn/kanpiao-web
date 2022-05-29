@@ -1,6 +1,6 @@
 <?php
     include "../../component/header.php";
-    include "../../component/conn.php";
+    include "../pub/conn.php";
 
     $sql = "select `img` from `banner`";
     $res = mysqli_query($conn, $sql);

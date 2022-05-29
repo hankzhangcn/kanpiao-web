@@ -64,6 +64,9 @@
                             <a href="./session_view.php?show_id=<?php echo $show_id;?>">
                                         <input type="button" class="btn btn-info" value="查看场次的检票实况" >
                             </a>
+                            <a href="./order_view.php?session_id=<?php echo $session_id;?>">
+                                        <input type="button" class="btn btn-info" value="查看场次的所有订单" >
+                            </a>
                         </div>
                     </div>
                 </div></br>

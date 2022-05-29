@@ -1,6 +1,6 @@
 <?php
         include "../../component/header.php";
-        include "../../component/conn.php";
+        include "../pub/conn.php";
         // include "../pub/jwt.php";
         include  "./token_to_openid.php";
 
