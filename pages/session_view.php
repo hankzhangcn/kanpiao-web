@@ -6,6 +6,10 @@
 ?>
 
 <?php
+
+$show_id = $_GET['show_id'];
+
+
 // 判断当前的页数
     if($_GET['p'])
         $page = $_GET['p'];
@@ -13,12 +17,13 @@
         $page = 1;
     $page_size = 10;
 // 确定最大页数
-    $sql="select count(*) from show_item";
+    $sql="select count(*) from show_session where show_id = '$show_id'";
     $rs=mysqli_query($conn,$sql);
     $row=mysqli_fetch_array($rs);
     $max_page = ceil($row[0]/$page_size);
 // 确定翻页地址
-    $next_url = "./show_view.php?";
+    $next_url = "./session_view.php?show_id=$show_id";
+
 ?>
 
 
@@ -49,44 +54,35 @@
                 <p>要登出系统，请返回仪表盘。</p>
             </div>
             <div class="workspace">
-                <h1>演出一览</h1>
-                <form method="get" action="show_menage.php">
-                    <div class="form-group">
-                        <label>通过演出 ID 直达管理</label>
-                        <input class="form-control" name="show_id" type="text" value="" >
-                        <small id="idlHelp" class="form-text text-muted">输入要管理的演出 ID</small>
-                        <input type="submit" class="btn btn-primary" />
-                    </div>
-                </form>
+                <h1>演出 <?php echo $show_id?> 的场次一览</h1>
                 <!-- 新增演出 -->
-                <a href="./show_add.php">
-                    <input type="button" class="btn btn-info" value="新增演出" >
+                <a href="./session_add.php?show_id=<?php echo $show_id?>">
+                    <input type="button" class="btn btn-info" value="新增场次" >
                 </a>
                 <table class="glance table table-hover table-bordered" >
                     <tr>
-                        <td>ID</td>
-                        <td>名称</td>
-                        <td>卡司</td>
-                        <td>城市</td>
+                        <td>场次 ID</td>
+                        <td>开场时间</td>
+                        <td>状态</td>
                     </tr>
                     <?php
-                        $sql="select * from show_item ORDER BY show_id limit ".(($page-1)*$page_size).",".$page_size;
+                        $sql="select * from show_session where show_id ='$show_id' ORDER BY session_time DESC limit ".(($page-1)*$page_size).",".$page_size;
                         $rs=mysqli_query($conn,$sql);
                         while($row=mysqli_fetch_array($rs))
                         {
                     ?>
                     <tr>
                         <td>
-                            <a href="show_menage.php?show_id=<?php echo $row['show_id']?>"><?php echo $row['show_id']?></a>
+                            <a href="session_menage.php?session_id=<?php echo $row['session_id']?>"><?php echo $row['session_id']?></a>
                         </td>
                         <td>
-                            <a href="show_menage.php?show_id=<?php echo $row['show_id']?>"><?php echo $row['show_name']?></a>
+                            <p><?php echo $row['session_time']?></p>
                         </td>
                         <td>
-                            <p><?php echo $row['show_cast']?></p>
-                        </td>
-                        <td>
-                            <p><?php echo $row['show_city']?></p>
+                            <p><?php if($row['session_status'])
+                            echo "正常";
+                            else
+                            echo "已取消"?></p>
                         </td>
                     </tr>
                     <?php
@@ -106,15 +102,7 @@
                     ?>
                         </li>
                     </ul>
-                    </nav>
-                <p>以上。数据库载入完成，为您提供
-                    <?php
-                        $sql="select count(*) from wx_user";
-                        $rs=mysqli_query($conn,$sql);
-                        $row=mysqli_fetch_array($rs);
-                        echo $row[0];
-                    ?>
-                    名教师的个人信息</p>
+                </nav>
             </div>
 
             <div class="bottom">

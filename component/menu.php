@@ -20,12 +20,6 @@
             <a href="show_view.php">
                 <input type="button" class="changepw" value="演出一览">
             </a>
-            <a href="changepw.php">
-                <input type="button" class="changepw" value="演出检索">
-            </a>
-            <div class="crossline">客服管理</div>
-            <a href="user_view.php"><input type="button" value="客服一览"> </a>
-            <a href="adduser.php"><input type="button" value="新增客服"> </a>
 <?php
 }
 ?>

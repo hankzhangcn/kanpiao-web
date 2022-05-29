@@ -64,12 +64,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm">
-                            <button type="button" class="btn btn-info">查看该用户的订单信息</button></br>
+                            <button type="button" class="btn btn-info">查看演出的检票实况</button></br>
                         </div>
                         <div class="col-sm">
                             
-                            <a href="./login_view.php?openid=<?php echo $openid;?>">
-                                        <input type="button" class="btn btn-info" value="查看该用户的登录信息" >
+                            <a href="./session_view.php?show_id=<?php echo $show_id;?>">
+                                        <input type="button" class="btn btn-info" value="查看演出的场次" >
                             </a>
                         </div>
                     </div>

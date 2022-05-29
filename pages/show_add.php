@@ -2,14 +2,6 @@
     include "../function/web/authorization.php";
     include "../function/pub/conn.php";
     include "../component/bootstrap.php";
-    $show_id=$_GET["show_id"];
-
-
-    //如果直接访问，那么后退。
-    if($show_id == null)
-        echo "<script>alert('请先选择演出。'); window.history.back();</script>";
-
-
 ?>
 
 
@@ -44,27 +36,17 @@
                 $rs=mysqli_query($conn,$sql);
                 if(mysqli_num_rows($rs)){
                 $row=mysqli_fetch_array($rs);
-                $show_id=row['0']+1;
+                $show_id=$row[0]+1;
                 if($is_service != 0)//如果不是管理员
                     echo "<script>alert('您没有管理用户的权限。'); window.history.back();</script>";
             ?>
             <div class="workspace">
-                <h1><?php echo "$show_cast"?> 的演出信息</h1></br>
+                <h1><?php echo "$show_cast"?> 新增演出信息</h1></br>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm">
-                            <button type="button" class="btn btn-info">查看该用户的订单信息</button></br>
-                        </div>
-                        <div class="col-sm">
-                            
-                            <a href="./login_view.php?openid=<?php echo $openid;?>">
-                                        <input type="button" class="btn btn-info" value="查看该用户的登录信息" >
-                            </a>
-                        </div>
-                    </div>
+
                 </div></br>
 
-                <form class="info" action="show_menage_ok.php" method="POST">
+                <form class="info" action="show_add_ok.php" method="POST">
                     <div class="row">
                         <div class="col-sm">
                             <div class="form-group">
