@@ -1,6 +1,6 @@
 <?php
     include "../../component/header.php";
-    include "../../component/conn.php";
+    include "../pub/conn.php";
     include "../pub/jwt.php";
 
     // $appid = "yourappid";
@@ -34,7 +34,7 @@
     }
 
     // 写login表,新获取了token
-    $sql = "insert into `login`(`platform`,`user_id`,`login_date`,`is_new_login`) values('0','".$openid."','".date("Y-m-d H:i:s")."',1)";
+    $sql = "insert into `login`(`platform`,`openid`,`login_time`,`is_new_login`) values('0','".$openid."','".date("Y-m-d H:i:s")."',1)";
     $res = mysqli_query($conn, $sql);
     
     // 回调前端token
