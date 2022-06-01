@@ -3,13 +3,19 @@
         include "../pub/conn.php";
         // include "../pub/jwt.php";
         include  "./token_to_openid.php";
+        include "./openid_to_user_id.php";
 
         // 解码jwt
         $token = $_GET['token'];
         $openid = token_to_openid($token);
 
+        $sql = "select user_id from wx_user where openid = '$openid' ";
+        $res = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($res);
+        $user_id = $row[0];
+
         //      选出当前账号下，最近一场session的order编号
-        $sql = "select `order_session_id` from `order` where `order_user_id` = '".$openid."' and `order_status` = 0 order by `order_session_id` limit 1";
+        $sql = "select `order_session_id` from `orders` where `order_user_id` = '".$user_id."' and `order_status` = 0 order by `order_session_id` limit 1";
         $res = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($res);
 

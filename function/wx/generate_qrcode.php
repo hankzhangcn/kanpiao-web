@@ -11,8 +11,8 @@
         // echo $openid;
 
         //      选出当前账号下，最近一场session的order编号
-        //      select `order_id` from `order` where `order_user_id` = '   openid  ' and `order_status` = 0 order by `order_session_id` limit 1;
-        $sql = "select `order_id` from `order` where `order_user_id` = '".$openid."' and `order_status` = 0 order by `order_session_id` limit 1";
+        //      select `order_id` from `orders` where `order_user_id` = '   openid  ' and `order_status` = 0 order by `order_session_id` limit 1;
+        $sql = "select `order_id` from `orders` where `order_user_id` = '".$openid."' and `order_status` = 0 order by `order_session_id` limit 1";
         $res = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($res);
 
