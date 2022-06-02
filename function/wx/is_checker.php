@@ -4,12 +4,12 @@
     include "./std_to_arr.php";
     include "./token_to_openid.php";
 
-    $user_info = json_decode($_GET['user_info']);
+    // $user_info = json_decode($_GET['user_info']);
     $openid = token_to_openid($_GET['token']);
-    $user_info=object_array($user_info);
+    // $user_info=object_array($user_info);
 
-    $nick_name = htmlspecialchars($user_info['nickName'],ENT_QUOTES);
-    $avatarurl = htmlspecialchars($user_info['avatarUrl'],ENT_QUOTES);
+    // $nick_name = htmlspecialchars($user_info['nickName'],ENT_QUOTES);
+    // $avatarurl = htmlspecialchars($user_info['avatarUrl'],ENT_QUOTES);
     
     // 检查是否已有该用户
     
@@ -19,9 +19,9 @@
     // 有该用户
     if($row[0] != 0)
     {
-        echo true;
+        echo "true";
     }
     else{
-        echo false;
+        echo "false";
     }
 ?>
