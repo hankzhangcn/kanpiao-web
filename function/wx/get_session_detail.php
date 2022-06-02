@@ -1,47 +1,23 @@
 <?php
         include "../../component/header.php";
         include "../pub/conn.php";
-        // include "../pub/jwt.php";
-        include  "./token_to_openid.php";
-        include "./openid_to_user_id.php";
+
 
 
         // 解码jwt
-        $token = $_GET['token'];
-        $openid = token_to_openid($token);
-
-        $sql = "select user_id from wx_user where openid = '$openid' ";
-        $res = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_array($res);
-        $user_id = $row[0];
-
-
-        //      选出当前账号下，最近一场session的order编号
-        $sql = "select `order_session_id` from `orders` where `order_user_id` = '".$user_id."' and `order_status` = 0 order by `order_session_id` limit 1";
-        $res = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_array($res);
-
-        $order_session_id = $row["order_session_id"];
-        // $order_session_id = 1;
-
-
-        $sql = "select * from `show_session` where `session_id` = ".$order_session_id;
-        $res = mysqli_query($conn, $sql);
-        $arr = array(); 
-        while($row=mysqli_fetch_array($res))
+        $session_id = $_GET['session_id'];
+        $show_id = $_GET['show_id'];
+        if($session_id)
         {
-            $count=count($row);
-            for($i=0;$i<$count;$i++){ 
-                unset($row[$i]);//删除冗余数据 
-              } 
-              array_push($arr,$row); 
+          // 获取show_id
         }
-        // var_dump($arr);
-        echo json_encode($arr);
+        else if($show_id)
+        {
+          // 获取session_id
+        }
 
-        
 
-        // 压入数组
+       
 
 
 ?>
