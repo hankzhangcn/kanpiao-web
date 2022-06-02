@@ -133,7 +133,7 @@ class Jwt {
   // echo "<br><br>";
   // //测试和官网是否匹配end
  
-  //自己使用测试begin
+  // // 自己使用测试begin
   // $payload_test=array('iss'=>'kanpiao','iat'=>time(),'exp'=>time()+7200,'nbf'=>time(),'sub'=>'www.admin.com','jti'=>md5(uniqid('JWT').time()));;
   // $token_test=Jwt::getToken($payload_test);
   // echo "<pre>";
@@ -144,4 +144,4 @@ class Jwt {
   // echo "<br><br>";
   // var_dump($getPayload_test);
   // echo "<br><br>";
-  //自己使用时候end
+  // // 自己使用时候end

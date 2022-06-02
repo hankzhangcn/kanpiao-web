@@ -12,9 +12,9 @@
     $sql = "select `order_status` from `orders` where `order_id` = ".$order_id;
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);
-    if($row[0] == 0)
+    if($row[0] == 1)
     {
-        $sql = "update `orders` set `order_status` = 1 where `order_id` = ".$order_id;
+        $sql = "update `orders` set `order_status` = 0 where `order_id` = ".$order_id;
         $res = mysqli_query($conn, $sql);
     }
     else
