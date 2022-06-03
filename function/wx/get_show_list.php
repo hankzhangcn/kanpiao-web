@@ -5,7 +5,7 @@
     $limit = $_GET['limit'];
     $pagestart = $limit*$_GET['pageNum'];
 
-    $sql = "SELECT * FROM show_item LIMIT $pagestart,$limit";
+    $sql = "SELECT * FROM show_item ORDER BY show_id LIMIT $pagestart,$limit";
     $res = mysqli_query($conn, $sql);
 
     $arr = array(); 

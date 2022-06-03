@@ -42,8 +42,8 @@
             if(get_sub($token))
             {
                 $is_new_login = 0;
-                // 把token还回去
-                echo $token;
+                echo get_token($openid);
+
             }
             else
             {
