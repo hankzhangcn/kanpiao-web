@@ -8,7 +8,7 @@
     function get_sub($token)
     {
         $getPayload=Jwt::verifyToken($token);
-        return $getPayload;
+        return $getPayload['sub'];
     }
 
 

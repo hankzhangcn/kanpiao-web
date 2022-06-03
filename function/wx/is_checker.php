@@ -2,10 +2,11 @@
     include "../../component/header.php";
     include "../pub/conn.php";
     include "./std_to_arr.php";
-    include "./token_to_openid.php";
+    include "../pub/jwt.php";
+    include "../pub/get_sub.php";
 
     // $user_info = json_decode($_GET['user_info']);
-    $openid = token_to_openid($_GET['token']);
+    $openid = get_sub($_GET['token']);
     // $user_info=object_array($user_info);
 
     // $nick_name = htmlspecialchars($user_info['nickName'],ENT_QUOTES);

@@ -1,13 +1,13 @@
 <?php
         include "../../component/header.php";
         include "../pub/conn.php";
-        // include "../pub/jwt.php";
-        include  "./token_to_openid.php";
+        include "../pub/jwt.php";
+        include "../pub/get_sub.php";
         include "./openid_to_user_id.php";
 
         // 解码jwt
         $token = $_GET['token'];
-        $openid = token_to_openid($token);
+        $openid = get_sub($token);
 
         $sql = "select user_id from wx_user where openid = '$openid' ";
         $res = mysqli_query($conn, $sql);
