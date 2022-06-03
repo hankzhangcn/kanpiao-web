@@ -15,7 +15,7 @@
     $row = mysqli_fetch_array($res);
     $user_id = $row[0];
     // 从数据库找用户订单列表
-    $sql = "select * from `orders` where `order_user_id` = '$user_id'";
+    $sql = "SELECT * FROM `orders` WHERE `order_user_id` = '$user_id' ORDER BY order_id DESC";
     $res = mysqli_query($conn, $sql);
     
 
@@ -23,10 +23,6 @@
     // 录入order_array
     while($row=mysqli_fetch_array($res))
     {
-
-
-        
-        
         $sql = "select * from `show_item` where `show_id` = (select show_id from show_session where session_id = ".$row['order_session_id'].")";
         $res_2 = mysqli_query($conn, $sql);
         $row_2=mysqli_fetch_array($res_2);

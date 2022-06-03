@@ -20,6 +20,7 @@
     $js_code = $_GET['code'];
     $token = $_GET['token'];
     $is_new_login = 1;
+    $openid=get_sub($token);
 
     // 如果没有token
     if(!$token)
@@ -41,13 +42,22 @@
             // 如果没过期
             if(get_sub($token))
             {
+                
                 $is_new_login = 0;
-                echo get_token($openid);
+                echo $token;
+                $openid=get_sub($token);
 
             }
             else
             {
                 // 获取新token
+                $url = "https://api.weixin.qq.com/sns/jscode2session?appid=".$appid."&secret=".$secret."&js_code=".$js_code."&grant_type=authorization_code";
+                $str = file_get_contents($url);
+                $json = json_decode($str);
+                $arr = get_object_vars($json);
+                $openid = $arr['openid']; //这是openid
+                $session_key = $arr['session_key']; //这是session_key
+                // 返回token
                 echo get_token($openid);
             }
         }
