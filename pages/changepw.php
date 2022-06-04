@@ -16,7 +16,7 @@ include "../component/bootstrap.php";
 
   <!--调试用，防止CSS被缓存-->
   <link rel="icon" href="https://s1.ax1x.com/2020/06/09/t5LIK0.png" type="image/x-icon" />
-  <title>修改密码-TIMS</title>
+  <title>修改密码-KPS</title>
 </head>
 <body>
     <main>

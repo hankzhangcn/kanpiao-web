@@ -56,7 +56,7 @@ else{
                 <link rel="stylesheet" href="\component\css\common.css">
                 <link rel="icon" href="https://s1.ax1x.com/2020/06/09/t5LIK0.png" type="image/x-icon" />
                 <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.4.0/jquery.min.js"></script>
-                <title>演出信息修改成功-TIMS</title>
+                <title>演出信息修改成功-KPS</title>
                 </head>
                 <body>
                     <main>
@@ -67,7 +67,7 @@ else{
                         <div class="contentflow">
                             <div class="noticepad">
                                 <h1></h1>
-                                <a>管理员 <?php echo $_SESSION['admin_name'];?>，您可以在本页面修改这位教师的信息。</a></br>
+                                <a>管理员 <?php echo $_SESSION['admin_name'];?>，您可以在本页面新增演出。</a></br>
                                 <a>要登出系统，请返回仪表盘。</a></br>
                             </div>
 

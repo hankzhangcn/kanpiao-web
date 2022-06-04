@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="\component\css\table.css"> -->
   <link rel="icon" href="https://s1.ax1x.com/2020/06/09/t5LIK0.png" type="image/x-icon" />
   <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.4.0/jquery.min.js"></script>
-  <title>教师信息修改-TIMS</title>
+  <title>用户信息修改-KPS</title>
 </head>
 <body>
     <main>
@@ -43,7 +43,7 @@
         <div class="contentflow">
             <div class="noticepad">
                 <h1></h1>
-                <a>管理员 <?php echo $_SESSION['u_id'];?>，您可以在本页面修改这位教师的信息。</a></br>
+                <a>管理员 <?php echo $_SESSION['u_id'];?>，您可以在本页面修改这位用户的信息。</a></br>
                 <a>要登出系统，请返回仪表盘。</a></br>
             </div>
             <?php
@@ -52,7 +52,7 @@
                 $rs=mysqli_query($conn,$sql);
                 if(mysqli_num_rows($rs)){
                 $row=mysqli_fetch_array($rs);
-                //将原本教师信息放入变量，方便嵌套
+                //将原本用户信息放入变量，方便嵌套
                 $openid=$row["openid"];
                 $nickname=$row["nickname"];
                 $avatarurl=$row["avatarurl"];

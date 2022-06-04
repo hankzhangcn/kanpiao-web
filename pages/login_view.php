@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="\component\css\common.css">
   <!-- <link rel="stylesheet" href="\component\css\table.css"> -->
   <link rel="icon" href="https://s1.ax1x.com/2020/06/09/t5LIK0.png" type="image/x-icon" />
-  <title>用户一览-TIMS</title>
+  <title>用户一览-KPS</title>
 </head>
 <body>
     <main>
@@ -46,10 +46,9 @@
         <div class="contentflow">
             <div class="noticepad">
                 <h1></h1>
-                <p>管理员 <?php echo $admin_name;?>，您可以在本页面查看或管理所有在校教师的信息。</p></br>
-                <p>『一览』仅显示部分信息，要查看详细信息，请单击教师姓名。</p>
-                <p>要浏览教师列表，请向下滚动页面。</p>
-                <p>要管理教师信息，请点击教师姓名。</p>
+                <p>管理员 <?php echo $admin_name;?>，您可以在本页面查看或管理所有用户登录的信息。</p></br>
+                <p>要浏览登录列表，请向下滚动页面。</p>
+                <p>要筛选用户，请点击用户openid。</p>
                 <p>要登出系统，请返回仪表盘。</p>
             </div>
             <div class="workspace">
@@ -132,14 +131,6 @@
                         </li>
                     </ul>
                     </nav>
-                <p>以上。数据库载入完成，为您提供
-                    <?php
-                        $sql="select count(*) from wx_user";
-                        $rs=mysqli_query($conn,$sql);
-                        $row=mysqli_fetch_array($rs);
-                        echo $row[0];
-                    ?>
-                    名教师的个人信息</p>
             </div>
 
             <div class="bottom">

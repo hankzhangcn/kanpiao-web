@@ -17,7 +17,7 @@ include "../function/pub/conn.php";
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://s2.pstatp.com/cdn/expire-1-M/jquery-easing/1.4.1/jquery.easing.js" type="application/javascript"></script>
-    <title>工作台-TIMS</title>
+    <title>工作台-KPS</title>
 </head>
 
 <body>

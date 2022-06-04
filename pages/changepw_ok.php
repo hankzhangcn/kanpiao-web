@@ -20,7 +20,7 @@ else{
     <meta charset="UTF-8">
     <link rel="stylesheet" href="\component\css\common.css">
     <link rel="icon" href="https://s1.ax1x.com/2020/06/09/t5LIK0.png" type="image/x-icon" />
-    <title>密码修改成功-TIMS</title>
+    <title>密码修改成功-KPS</title>
     </head>
     <body>
         <main>
