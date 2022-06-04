@@ -18,7 +18,7 @@
     <div class="loginpad">
       <div class="title">
         <img src="https://s1.ax1x.com/2020/06/09/t5LIK0.png" /><br />
-        <a>KPW 看票管理员端</a>
+        <a>KPS 看票管理员端</a>
       </div>
       <div class="content">
         <div class="errormsg"></div>

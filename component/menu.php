@@ -18,6 +18,9 @@
         </a>
 
         <div class="crossline">演出</div>
+        <a href="order_go_to.php">
+            <input type="button" class="changepw" value="订单直达">
+        </a>
         <a href="show_view.php">
             <input type="button" class="changepw" value="演出一览">
         </a>

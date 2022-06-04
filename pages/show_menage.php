@@ -63,9 +63,9 @@
                 <h1><?php echo "$show_cast"?> 的演出信息</h1></br>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm">
+                        <!-- <div class="col-sm">
                             <button type="button" class="btn btn-info">查看演出的检票实况</button></br>
-                        </div>
+                        </div> -->
                         <div class="col-sm">
                             
                             <a href="./session_view.php?show_id=<?php echo $show_id;?>">

@@ -78,9 +78,9 @@
                         </div>
                         <div class="col-sm">
                             
-                            <a href="./login_view.php?openid=<?php echo $openid;?>">
+                            <!-- <a href="./login_view.php?openid=<?php echo $openid;?>">
                                         <input type="button" class="btn btn-info" value="查看该用户的登录信息" >
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div></br>
