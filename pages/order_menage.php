@@ -55,8 +55,7 @@
                 $order_close_time=$row["order_close_time"];
                 $order_status=$row["order_status"];
                 
-                if($is_service != 0)//如果不是管理员
-                    echo "<script>alert('您没有管理用户的权限。'); window.history.back();</script>";
+                
             ?>
             <div class="workspace">
                 <h1>订单 <?php echo "$order_id"?> 的订单信息</h1></br>
