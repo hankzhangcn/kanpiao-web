@@ -8,6 +8,8 @@
 
 **看票Kanpiao-管理后台**使用PHP开发，并通过Web渲染UI。此后台系统为管理员提供了对用户、订单、演出和场次的全面管理功能。
 
+用户、检票员端，请见[kanpiao](https://github.com/hankzhangcn/kanpiao)
+
 ## 功能模块
 
 - **用户管理**：管理注册用户的相关信息。
