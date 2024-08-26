@@ -19,7 +19,7 @@
 
 - **场次管理**：为每个演出管理不同场次的安排。
 
-  ![login](.\asset\login.png)
+  ![login](./asset/login.png)
 
 ## 快速开始
 
